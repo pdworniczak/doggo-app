@@ -13,9 +13,6 @@ export interface BreedList extends BaseResponse {
 interface BreedImage extends BaseResponse {
   message: string;
 }
-interface BreedImages extends BaseResponse {
-  message: string;
-}
 
 const BREEADS_URL = "https://dog.ceo";
 
@@ -36,10 +33,6 @@ export const concatPaths = (path1: string, path2: string) =>
     .filter((v) => v !== "")
     .join("/");
 
-// 'https://dog.ceo/api/breeds/image/random'
-// 'https://dog.ceo/api/breed/hound/images'
-// 'https://dog.ceo/api/breed/terrier/westhighland/images/random'
-
 export const breedsApi = {
   getBreedList() {
     return get<BreedList>("breeds/list/all");
@@ -48,10 +41,6 @@ export const breedsApi = {
   getRandomImage() {
     return get<BreedImage>("breeds/image/random");
   },
-
-  // getBreedImages(breedName: string) {
-  //     return get<BreedImages>('breed/hound/images')
-  // },
 
   getRandomBreedImage(breed: string, subreed = "") {
     const breedPath = concatPaths("breed", `${breed}/${subreed}`);
