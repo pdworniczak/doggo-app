@@ -49,7 +49,7 @@ export const Navigation = styled.nav`
   min-height: 300px;
 `;
 
-export const ButtonNavigation = styled.button`
+export const Button = styled.button`
   align-items: center;
   background-color: ${COLORS.PRIMARY};
   margin: 5px;
@@ -70,6 +70,7 @@ export const ButtonNavigation = styled.button`
   text-align: center;
   touch-action: manipulation;
   text-transform: capitalize;
+  min-width: 100px;
 
   :hover,
   :focus {
@@ -97,7 +98,7 @@ export const ButtonTop = styled.a`
   margin: 30px;
   width: 40px;
   height: 40px;
-  background: ${COLORS.PRIMARY};
+  background: ${COLORS.BLACK};
   color: ${COLORS.TEXT};
   text-decoration: none;
   line-height: 40px;

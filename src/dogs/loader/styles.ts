@@ -6,6 +6,10 @@ export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5px;
 `;
 
 export const SpinningDots = styled.div`

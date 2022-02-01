@@ -4,6 +4,7 @@ import { breedsApi } from "../../api";
 
 export const useModal = (breed: string | null) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [next, getNext] = useState<boolean>(false);
   const [backgroundImage, setBackgroundImage] = useState("");
   useEffect(() => {
     const fetch = async () => {
@@ -25,7 +26,12 @@ export const useModal = (breed: string | null) => {
     };
 
     fetch();
-  }, [breed]);
+  }, [breed, next]);
 
-  return { isLoading, backgroundImage, setBackgroundImage };
+  return {
+    isLoading,
+    backgroundImage,
+    setBackgroundImage,
+    getNext: () => getNext(!next),
+  };
 };

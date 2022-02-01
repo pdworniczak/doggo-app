@@ -3,14 +3,7 @@ import React from "react";
 import { Modal } from "./modal";
 import { Loader } from "./loader";
 import { useBreeds } from "./hooks";
-import {
-  Main,
-  Header,
-  Navigation,
-  ButtonNavigation,
-  ButtonTop,
-  H1,
-} from "./styles";
+import { Main, Header, Navigation, Button, ButtonTop, H1 } from "./styles";
 
 function App() {
   const { isLoading, breeds, selectedBreed, setSelectedBreed } = useBreeds();
@@ -27,12 +20,9 @@ function App() {
         <Navigation>
           {!isLoading &&
             breeds.map((breed, index) => (
-              <ButtonNavigation
-                key={index}
-                onClick={() => setSelectedBreed(breed)}
-              >
+              <Button key={index} onClick={() => setSelectedBreed(breed)}>
                 {breed}
-              </ButtonNavigation>
+              </Button>
             ))}
           <Loader isLoading={isLoading}></Loader>
         </Navigation>

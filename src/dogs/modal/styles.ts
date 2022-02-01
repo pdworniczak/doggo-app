@@ -30,6 +30,10 @@ export const ModalContent = styled.div<ModalContentProps>`
   background-repeat: no-repeat;
   background-position: center center;
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const ModalContainer = styled.div<ModalContainerProps>`

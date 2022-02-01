@@ -2,7 +2,7 @@ import React from "react";
 
 import { useModal } from "./hooks";
 import { ModalContainer, ModalBox, ModalHeader, ModalContent } from "./styles";
-import { H2, ButtonClose } from "../styles";
+import { H2, Button, ButtonClose } from "../styles";
 import { Loader } from "../loader";
 
 interface ModalProps {
@@ -11,7 +11,8 @@ interface ModalProps {
 }
 
 export const Modal = ({ breed, close }: ModalProps) => {
-  const { isLoading, backgroundImage, setBackgroundImage } = useModal(breed);
+  const { isLoading, backgroundImage, setBackgroundImage, getNext } =
+    useModal(breed);
 
   return (
     <ModalContainer isVisible={breed != null}>
@@ -28,7 +29,11 @@ export const Modal = ({ breed, close }: ModalProps) => {
           <H2>{breed}</H2>
         </ModalHeader>
         <Loader isLoading={isLoading} />
-        {!isLoading && <ModalContent backgroundImage={backgroundImage} />}
+        {backgroundImage && (
+          <ModalContent backgroundImage={backgroundImage}>
+            <Button onClick={getNext}>Next</Button>
+          </ModalContent>
+        )}
       </ModalBox>
     </ModalContainer>
   );
